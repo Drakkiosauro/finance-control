@@ -1,0 +1,30 @@
+# ============================================================
+# Controle Financeiro — ignore arquivos gerados em runtime
+# ============================================================
+
+# Banco de dados SQLite (gerado automaticamente via schema.sql)
+data/*.db
+data/*.db-wal
+data/*.db-shm
+data/*.db-journal
+
+# Backups automáticos
+backups/
+data/backups/
+
+# Logs de erro do PHP
+data/php_errors.log
+*.log
+
+# Rate limiting (arquivos temporários)
+data/rll_*.tmp
+
+# Configurações de ambiente local
+.env
+.env.local
+config/local.php
+
+# Sistema / OS
+.DS_Store
+Thumbs.db
+desktop.ini

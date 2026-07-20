@@ -1,0 +1,25 @@
+# Apache Security
+Options -Indexes
+ServerSignature Off
+
+# Block access to sensitive files
+<FilesMatch "\.(db|sql|md|log|tmp)$">
+    Require all denied
+</FilesMatch>
+
+# Block access to data directory
+RedirectMatch 403 ^/data/.*$
+
+# Protect includes
+RedirectMatch 403 ^/includes/.*$
+
+# Protect config
+RedirectMatch 403 ^/config/.*$
+
+# Protect sql
+RedirectMatch 403 ^/sql/.*$
+
+# Force HTTPS
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
